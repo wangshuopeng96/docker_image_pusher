@@ -1,6 +1,6 @@
-linkedin/datahub-frontend-react:v1.3.0.1
-linkedin/datahub-gms:v1.3.0.1
-acryldata/datahub-upgrade:v1.3.0.1
-linkedin/datahub-elasticsearch-setup:v1.3.0.1
-linkedin/datahub-kafka-setup:v1.3.0.1
-acryldata/datahub-mysql-setup:v1.3.0.1
+linkedin/datahub-frontend-react:v1.3.0
+linkedin/datahub-gms:v1.3.0
+acryldata/datahub-upgrade:v1.3.0
+linkedin/datahub-elasticsearch-setup:v1.3.0
+linkedin/datahub-kafka-setup:v1.3.0
+acryldata/datahub-mysql-setup:v1.3.0
