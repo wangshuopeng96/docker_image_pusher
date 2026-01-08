@@ -5,12 +5,12 @@ on:
   push:
     branches: [ main ]
 
-
 env:
-  ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
-  ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
-  ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
-  ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
+  # 直接在这里写死阿里云镜像仓库信息
+  ALIYUN_REGISTRY: "crpi-mkvrtqplyn0tl5ll.cn-beijing.personal.cr.aliyuncs.com"
+  ALIYUN_NAME_SPACE: "datahub_wangshuopeng"
+  ALIYUN_REGISTRY_USER: "aliyun9388491568"
+  ALIYUN_REGISTRY_PASSWORD: "W19960308sp"
 
 jobs:
 
@@ -29,14 +29,10 @@ jobs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
-
         root-reserve-mb: 2048
         swap-size-mb: 128
         remove-dotnet: 'true'
         remove-haskell: 'true'
-        # 如果空间还是不够用，可以把以下开启，清理出更多空间
-        # remove-android: 'true'
-        # remove-codeql: 'true'
         build-mount-path: '/var/lib/docker/'
 
     - name: Restart docker
@@ -57,7 +53,9 @@ jobs:
 
     - name: Build and push image Aliyun
       run: |
-        echo "$ALIYUN_REGISTRY_PASSWORD" | docker login --username "$ALIYUN_REGISTRY_USER" --password-stdin "$ALIYUN_REGISTRY"
+        # 使用非交互式登录方式，避免密码显示
+        echo "$ALIYUN_REGISTRY_PASSWORD" | docker login $ALIYUN_REGISTRY -u $ALIYUN_REGISTRY_USER --password-stdin
+        
         # 数据预处理,判断镜像是否重名
         declare -A duplicate_images
         declare -A temp_map
