@@ -1,6 +1,6 @@
-nginx
-#支持私库
-k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0
-xhofe/alist:latest
-#支持指定架构
---platform=linux/arm64 xiaoyaliu/alist
+linkedin/datahub-frontend-react:v1.3.0.1
+linkedin/datahub-gms:v1.3.0.1
+acryldata/datahub-upgrade:v1.3.0.1
+linkedin/datahub-elasticsearch-setup:v1.3.0.1
+linkedin/datahub-kafka-setup:v1.3.0.1
+acryldata/datahub-mysql-setup:v1.3.0.1
